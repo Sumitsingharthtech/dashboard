@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, makeStyles, IconButton, Hidden,TextField } from '@material-ui/core';
+import { Box, Grid, makeStyles, IconButton, Hidden, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 import MenuTwoToneIcon from '@material-ui/icons/MenuTwoTone';
 
@@ -12,7 +12,7 @@ import ProfileSection from './ProfileSection';
 // import LocalizationProvider from '@mui/lab/LocalizationProvider';
 // import MobileDatePicker from '@mui/lab/MobileDatePicker';
 
-import logo from './logo1.png'
+import logo from './logo1.png';
 import { drawerWidth } from './../../../store/constant';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 const Header = (props) => {
     const { drawerToggle } = props;
     const classes = useStyles();
-   
 
     return (
         <React.Fragment>
@@ -50,9 +49,8 @@ const Header = (props) => {
                 <Grid container justify="space-between" alignItems="center">
                     <Hidden smDown>
                         <Grid item>
-                            <Box  >
-                                <img src={logo} alt="logo" style={{height:"3.5rem", width:"9.5rem" }} />
-
+                            <Box>
+                                <img src={logo} alt="logo" style={{ height: '3.5rem', width: '9.5rem' }} />
                             </Box>
                         </Grid>
                     </Hidden>
@@ -65,32 +63,25 @@ const Header = (props) => {
                             onClick={drawerToggle}
                         >
                             <MenuTwoToneIcon className={classes.menuIcon} />
-
-                            
                         </IconButton>
-                  
                     </Grid>
-                  
                 </Grid>
-                
             </Box>
-           
-              <label  style={{ paddingTop:"3px", marginRight:"10px" }} > Start Date</label>  <TextField    
-         type="Date"  /> 
-
-          <label style={{marginLeft:"5rem"}}> End Date</label>
-        <TextField    
-         type="Date"  style={{marginLeft:".8rem"}} 
-      /> 
-
-
+            <FormControl style={{ minWidth: 120, paddingBottom: '15px' }}>
+                <InputLabel id="demo-simple-select-label"> Territory </InputLabel>
+                <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Territory">
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={40}>Forty</MenuItem>
+                </Select>
+            </FormControl>
+            <label style={{ paddingTop: '3px', marginLeft: '55px' }}> Start Date</label>{' '}
+            <TextField type="Date" style={{ marginLeft: '10px' }} />
+            <label style={{ marginLeft: '5rem' }}> End Date</label>
+            <TextField type="Date" style={{ marginLeft: '.8rem' }} />
             <div className={classes.grow} />
-       
-
- 
-           
             <SearchSection theme="light" />
-           
             <ProfileSection />
         </React.Fragment>
     );
