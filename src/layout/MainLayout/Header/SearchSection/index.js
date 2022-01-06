@@ -2,6 +2,7 @@ import React from 'react';
 import { fade, Box, Button, makeStyles, InputBase, Hidden, Popper, Fade, Card, CardContent, Grid } from '@material-ui/core';
 import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
 import CloseTwoToneIcon from '@material-ui/icons/CloseTwoTone';
+// import { DatePicker, KeyboardDatePicker } from "@material-ui/pickers";
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
 
 const useStyles = makeStyles((theme) => ({
@@ -93,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '1.5rem',
     },
 }));
-
+// const [selectedDate, handleDateChange] = useState(new Date());
 const SearchSection = () => {
     const classes = useStyles();
 

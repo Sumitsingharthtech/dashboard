@@ -1,12 +1,16 @@
 import React from 'react';
-import { Box, Grid, makeStyles, IconButton, Hidden } from '@material-ui/core';
+import { Box, Grid, makeStyles, IconButton, Hidden,TextField } from '@material-ui/core';
 
 import MenuTwoToneIcon from '@material-ui/icons/MenuTwoTone';
 
 import SearchSection from './SearchSection';
 
 import ProfileSection from './ProfileSection';
-
+// import { DatePicker } from "@material-ui/pickers";
+// import TextField from '@mui/material/TextField';
+// import AdapterDateFns from '@mui/lab/AdapterDateFns';
+// import LocalizationProvider from '@mui/lab/LocalizationProvider';
+// import MobileDatePicker from '@mui/lab/MobileDatePicker';
 
 import logo from './logo1.png'
 import { drawerWidth } from './../../../store/constant';
@@ -38,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = (props) => {
     const { drawerToggle } = props;
     const classes = useStyles();
+   
 
     return (
         <React.Fragment>
@@ -60,12 +65,30 @@ const Header = (props) => {
                             onClick={drawerToggle}
                         >
                             <MenuTwoToneIcon className={classes.menuIcon} />
-                        </IconButton>
-                    </Grid>
-                </Grid>
-            </Box>
-            <div className={classes.grow} />
 
+                            
+                        </IconButton>
+                  
+                    </Grid>
+                  
+                </Grid>
+                
+            </Box>
+           
+              <label  style={{ paddingTop:"3px", marginRight:"10px" }} > Start Date</label>  <TextField    
+         type="Date"  /> 
+
+          <label style={{marginLeft:"5rem"}}> End Date</label>
+        <TextField    
+         type="Date"  style={{marginLeft:".8rem"}} 
+      /> 
+
+
+            <div className={classes.grow} />
+       
+
+ 
+           
             <SearchSection theme="light" />
            
             <ProfileSection />
